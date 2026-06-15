@@ -8,16 +8,34 @@
 // 4. Replace placeholder data with props/state
 
 import { BadgeHelp, BarChart3, Bell, CircleHelp, Headphones, Kanban, ListFilter, Pencil, Plus, Search, Settings, Terminal } from "lucide-react";
-
+import { useState, useEffect } from "react";
 
 export type RecordOperationsRecovergridAtlasActionId = "new-incident-1" | "retry-load-2" | "create-record-3" | "notifications-4" | "help-outline-5" | "edit-notes-6" | "copy-id-7" | "record-operations-1" | "pipeline-board-2" | "settings-3" | "support-4" | "logs-5" | "records-6" | "pipeline-7" | "settings-8";
 
 export interface RecordOperationsRecovergridAtlasProps {
-  actions?: Partial<Record<RecordOperationsRecovergridAtlasActionId, () => void>>;
+  searchQuery?: string;
+  actions?: Partial<Record<RecordOperationsRecovergridAtlasActionId, () => void>> & {
+    "search-records"?: (query: string) => void;
+  };
 
 }
 
-export function RecordOperationsRecovergridAtlas({ actions }: RecordOperationsRecovergridAtlasProps) {
+export function RecordOperationsRecovergridAtlas({ actions, searchQuery = "" }: RecordOperationsRecovergridAtlasProps) {
+  const [localSearchQuery, setLocalSearchQuery] = useState(searchQuery);
+
+  useEffect(() => {
+    setLocalSearchQuery(searchQuery);
+  }, [searchQuery]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      if (localSearchQuery !== searchQuery) {
+        actions?.["search-records"]?.(localSearchQuery);
+      }
+    }, 300);
+    return () => window.clearTimeout(timer);
+  }, [localSearchQuery, searchQuery, actions]);
+
   return (
     <>
       {/* SideNavBar */}
@@ -67,7 +85,7 @@ export function RecordOperationsRecovergridAtlas({ actions }: RecordOperationsRe
       {/* Search on left */}
       <div className="relative hidden sm:block">
       <Search  style={{fontSize: "16px"}} className="absolute left-2 top-1/2 -translate-y-1/2 text-outline" aria-hidden={true} focusable="false" />
-      <input className="pl-8 pr-3 py-1 bg-surface-container-low border border-outline-variant rounded font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 h-8 transition-colors" placeholder="Search records, IDs..." type="text" />
+      <input className="pl-8 pr-3 py-1 bg-surface-container-low border border-outline-variant rounded font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 h-8 transition-colors" placeholder="Search records, IDs..." type="text" value={localSearchQuery} onChange={(event) => { setLocalSearchQuery(event.target.value); }} data-action-id="search-records" />
       </div>
       </div>
       <div className="flex items-center gap-gutter h-full">

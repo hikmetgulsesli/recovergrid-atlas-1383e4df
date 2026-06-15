@@ -13,6 +13,12 @@ import {
   type AtlasState,
   type Surface,
 } from './features/recovergrid-atlas/recovergrid-atlas.store';
+import { actSaveRecord } from './features/surf-record-editor/act_save_record';
+import { actCancelEdit } from './features/surf-record-editor/act_cancel_edit';
+import { actSearchRecords } from './features/surf-record-operations/act_search_records';
+import { actCreateRecord } from './features/surf-record-operations/act_create_record';
+import { actSelectRecord } from './features/surf-record-operations/act_select_record';
+import { actRetryLoad } from './features/surf-record-operations/act_retry_load';
 import './test/bridge';
 
 declare global {
@@ -86,9 +92,9 @@ function AppContent(): JSX.Element {
 
   const commonActions = useMemo(
     () => ({
-      'new-incident-1': actions.createRecord,
-      'retry-load-2': actions.retryLoad,
-      'create-record-3': actions.createRecord,
+      'new-incident-1': () => actCreateRecord(actions),
+      'retry-load-2': () => actRetryLoad(actions),
+      'create-record-3': () => actCreateRecord(actions),
       'notifications-4': actions.notifications,
       'help-outline-5': actions.helpOutline,
       'record-operations-1': () => actions.navigate('recordOperations'),
@@ -103,9 +109,10 @@ function AppContent(): JSX.Element {
   const recordOperationsActions = useMemo(
     () => ({
       ...commonActions,
+      'search-records': (query: string) => actSearchRecords(actions, query),
       'edit-notes-6': () => {
         const id = state.records[0]?.id ?? null;
-        if (id) actions.selectRecord(id);
+        if (id) actSelectRecord(actions, id);
       },
       'copy-id-7': actions.copyLog,
       'records-6': () => actions.navigate('recordOperations'),
@@ -127,15 +134,15 @@ function AppContent(): JSX.Element {
 
   const recordEditorActions = useMemo(
     () => ({
-      'cancel-1': actions.cancelEdit,
-      'save-record-2': actions.saveRecord,
+      'cancel-1': () => actCancelEdit(actions),
+      'save-record-2': () => actSaveRecord(actions),
       'bold-3': () => actions.updateDraft('notes', `${state.draftRecord?.notes ?? ''}**bold**`),
       'italic-4': () => actions.updateDraft('notes', `${state.draftRecord?.notes ?? ''}*italic*`),
       'code-block-5': () =>
         actions.updateDraft('notes', `${state.draftRecord?.notes ?? ''}\n\`\`\`\n\`\`\``),
       'attach-log-6': actions.copyLog,
-      'discard-changes-7': actions.cancelEdit,
-      'save-record-8': actions.saveRecord,
+      'discard-changes-7': () => actCancelEdit(actions),
+      'save-record-8': () => actSaveRecord(actions),
       'atlas-ops-1': () => actions.navigate('recordOperations'),
       'record-operations-2': () => actions.navigate('recordOperations'),
     }),
@@ -195,7 +202,7 @@ function AppContent(): JSX.Element {
     <div className="flex h-full w-full flex-col">
       <PersistenceStatus />
       {surface === 'recordOperations' && (
-        <RecordOperationsRecovergridAtlas actions={recordOperationsActions} />
+        <RecordOperationsRecovergridAtlas actions={recordOperationsActions} searchQuery={state.searchQuery} />
       )}
       {surface === 'recordEditor' && <RecordEditorRecovergridAtlas actions={recordEditorActions} />}
       {surface === 'pipelineBoard' && (
