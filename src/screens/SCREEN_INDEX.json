@@ -1,0 +1,522 @@
+[
+  {
+    "screenId": "bca39c50dbad459b8f52ca23df86e24a",
+    "title": "Record Editor - RecoverGrid Atlas",
+    "componentName": "RecordEditorRecovergridAtlas",
+    "file": "src/screens/RecordEditorRecovergridAtlas.tsx",
+    "buttons": 8,
+    "inputs": 5,
+    "links": 2,
+    "actions": [
+      {
+        "id": "cancel-1",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 0
+      },
+      {
+        "id": "save-record-2",
+        "kind": "button",
+        "label": "Save Record",
+        "index": 1
+      },
+      {
+        "id": "bold-3",
+        "kind": "button",
+        "label": "Bold",
+        "index": 2
+      },
+      {
+        "id": "italic-4",
+        "kind": "button",
+        "label": "Italic",
+        "index": 3
+      },
+      {
+        "id": "code-block-5",
+        "kind": "button",
+        "label": "Code Block",
+        "index": 4
+      },
+      {
+        "id": "attach-log-6",
+        "kind": "button",
+        "label": "Attach Log",
+        "index": 5
+      },
+      {
+        "id": "discard-changes-7",
+        "kind": "button",
+        "label": "Discard Changes",
+        "index": 6
+      },
+      {
+        "id": "save-record-8",
+        "kind": "button",
+        "label": "Save Record",
+        "index": 7
+      },
+      {
+        "id": "atlas-ops-1",
+        "kind": "link",
+        "label": "Atlas Ops",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "record-operations-2",
+        "kind": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "index": 1
+      }
+    ]
+  },
+  {
+    "screenId": "b6851c3f538c49af9ef5ea838d67ac6e",
+    "title": "Pipeline Board - RecoverGrid Atlas",
+    "componentName": "PipelineBoardRecovergridAtlas",
+    "file": "src/screens/PipelineBoardRecovergridAtlas.tsx",
+    "buttons": 5,
+    "inputs": 1,
+    "links": 8,
+    "actions": [
+      {
+        "id": "new-incident-1",
+        "kind": "button",
+        "label": "New Incident",
+        "index": 0
+      },
+      {
+        "id": "retry-load-2",
+        "kind": "button",
+        "label": "Retry Load",
+        "index": 1
+      },
+      {
+        "id": "create-record-3",
+        "kind": "button",
+        "label": "Create Record",
+        "index": 2
+      },
+      {
+        "id": "notifications-4",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 3
+      },
+      {
+        "id": "help-outline-5",
+        "kind": "button",
+        "label": "Help Outline",
+        "index": 4
+      },
+      {
+        "id": "record-operations-1",
+        "kind": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "pipeline-board-2",
+        "kind": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "support-4",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "logs-5",
+        "kind": "link",
+        "label": "Logs",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "records-6",
+        "kind": "link",
+        "label": "Records",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "pipeline-7",
+        "kind": "link",
+        "label": "Pipeline",
+        "href": "#",
+        "index": 6
+      },
+      {
+        "id": "settings-8",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 7
+      }
+    ]
+  },
+  {
+    "screenId": "429f7f08067a46eaa75d04c089d09f60",
+    "title": "Empty and Error Recovery - RecoverGrid Atlas",
+    "componentName": "EmptyAndErrorRecoveryRecovergridAtlas",
+    "file": "src/screens/EmptyAndErrorRecoveryRecovergridAtlas.tsx",
+    "buttons": 12,
+    "inputs": 1,
+    "links": 10,
+    "actions": [
+      {
+        "id": "new-incident-1",
+        "kind": "button",
+        "label": "New Incident",
+        "index": 0
+      },
+      {
+        "id": "retry-load-2",
+        "kind": "button",
+        "label": "Retry Load",
+        "index": 1
+      },
+      {
+        "id": "create-record-3",
+        "kind": "button",
+        "label": "Create Record",
+        "index": 2
+      },
+      {
+        "id": "notifications-4",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 3
+      },
+      {
+        "id": "help-outline-5",
+        "kind": "button",
+        "label": "Help Outline",
+        "index": 4
+      },
+      {
+        "id": "show-empty-6",
+        "kind": "button",
+        "label": "Show Empty",
+        "index": 5
+      },
+      {
+        "id": "show-error-7",
+        "kind": "button",
+        "label": "Show Error",
+        "index": 6
+      },
+      {
+        "id": "create-first-record-8",
+        "kind": "button",
+        "label": "Create First Record",
+        "index": 7
+      },
+      {
+        "id": "clear-filters-9",
+        "kind": "button",
+        "label": "Clear Filters",
+        "index": 8
+      },
+      {
+        "id": "copy-log-10",
+        "kind": "button",
+        "label": "Copy Log",
+        "index": 9
+      },
+      {
+        "id": "retry-load-11",
+        "kind": "button",
+        "label": "Retry Load",
+        "index": 10
+      },
+      {
+        "id": "contact-support-12",
+        "kind": "button",
+        "label": "Contact Support",
+        "index": 11
+      },
+      {
+        "id": "record-operations-1",
+        "kind": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "pipeline-board-2",
+        "kind": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "support-4",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "logs-5",
+        "kind": "link",
+        "label": "Logs",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "records-6",
+        "kind": "link",
+        "label": "Records",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "pipeline-7",
+        "kind": "link",
+        "label": "Pipeline",
+        "href": "#",
+        "index": 6
+      },
+      {
+        "id": "settings-8",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 7
+      },
+      {
+        "id": "import-from-csv-9",
+        "kind": "link",
+        "label": "Import from CSV",
+        "href": "#",
+        "index": 8
+      },
+      {
+        "id": "view-documentation-10",
+        "kind": "link",
+        "label": "View Documentation",
+        "href": "#",
+        "index": 9
+      }
+    ]
+  },
+  {
+    "screenId": "a4876f516df04659a9fdeeea8efe7d95",
+    "title": "Record Operations - RecoverGrid Atlas",
+    "componentName": "RecordOperationsRecovergridAtlas",
+    "file": "src/screens/RecordOperationsRecovergridAtlas.tsx",
+    "buttons": 7,
+    "inputs": 1,
+    "links": 8,
+    "actions": [
+      {
+        "id": "new-incident-1",
+        "kind": "button",
+        "label": "New Incident",
+        "index": 0
+      },
+      {
+        "id": "retry-load-2",
+        "kind": "button",
+        "label": "Retry Load",
+        "index": 1
+      },
+      {
+        "id": "create-record-3",
+        "kind": "button",
+        "label": "Create Record",
+        "index": 2
+      },
+      {
+        "id": "notifications-4",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 3
+      },
+      {
+        "id": "help-outline-5",
+        "kind": "button",
+        "label": "Help Outline",
+        "index": 4
+      },
+      {
+        "id": "edit-notes-6",
+        "kind": "button",
+        "label": "Edit Notes",
+        "index": 5
+      },
+      {
+        "id": "copy-id-7",
+        "kind": "button",
+        "label": "Copy ID",
+        "index": 6
+      },
+      {
+        "id": "record-operations-1",
+        "kind": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "pipeline-board-2",
+        "kind": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "support-4",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "logs-5",
+        "kind": "link",
+        "label": "Logs",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "records-6",
+        "kind": "link",
+        "label": "Records",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "pipeline-7",
+        "kind": "link",
+        "label": "Pipeline",
+        "href": "#",
+        "index": 6
+      },
+      {
+        "id": "settings-8",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 7
+      }
+    ]
+  },
+  {
+    "screenId": "1ebdeff007304c35b4626d82663f1111",
+    "title": "Settings and Preferences - RecoverGrid Atlas",
+    "componentName": "SettingsAndPreferencesRecovergridAtlas",
+    "file": "src/screens/SettingsAndPreferencesRecovergridAtlas.tsx",
+    "buttons": 7,
+    "inputs": 8,
+    "links": 5,
+    "actions": [
+      {
+        "id": "menu-1",
+        "kind": "button",
+        "label": "Menu",
+        "index": 0
+      },
+      {
+        "id": "new-incident-2",
+        "kind": "button",
+        "label": "New Incident",
+        "index": 1
+      },
+      {
+        "id": "reset-to-defaults-3",
+        "kind": "button",
+        "label": "Reset to Defaults",
+        "index": 2
+      },
+      {
+        "id": "save-preferences-4",
+        "kind": "button",
+        "label": "Save Preferences",
+        "index": 3
+      },
+      {
+        "id": "manage-all-5",
+        "kind": "button",
+        "label": "Manage All",
+        "index": 4
+      },
+      {
+        "id": "reset-6",
+        "kind": "button",
+        "label": "Reset",
+        "index": 5
+      },
+      {
+        "id": "save-preferences-7",
+        "kind": "button",
+        "label": "Save Preferences",
+        "index": 6
+      },
+      {
+        "id": "record-operations-1",
+        "kind": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "pipeline-board-2",
+        "kind": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "support-4",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "logs-5",
+        "kind": "link",
+        "label": "Logs",
+        "href": "#",
+        "index": 4
+      }
+    ]
+  }
+]
