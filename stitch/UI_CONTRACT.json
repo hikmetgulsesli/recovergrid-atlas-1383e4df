@@ -1,0 +1,1178 @@
+[
+  {
+    "screenId": "bca39c50dbad459b8f52ca23df86e24a",
+    "screenTitle": "Record Editor - RecoverGrid Atlas",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Atlas Ops",
+        "href": "#",
+        "line": 169
+      },
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 174
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 185
+      },
+      {
+        "type": "button",
+        "label": "Record",
+        "line": 188
+      },
+      {
+        "type": "button",
+        "label": "Bold",
+        "line": 282
+      },
+      {
+        "type": "button",
+        "label": "Italic",
+        "line": 285
+      },
+      {
+        "type": "button",
+        "label": "Code Block",
+        "line": 289
+      },
+      {
+        "type": "button",
+        "label": "Attach Log",
+        "line": 292
+      },
+      {
+        "type": "button",
+        "label": "Discard Changes",
+        "line": 302
+      },
+      {
+        "type": "button",
+        "label": "Save Record",
+        "line": 305
+      },
+      {
+        "type": "input",
+        "label": "e.g. Database Sync Failure - Node A",
+        "inputType": "text",
+        "placeholder": "e.g. Database Sync Failure - Node A",
+        "line": 203
+      },
+      {
+        "type": "input",
+        "label": "Provide a detailed summary of the incident...",
+        "inputType": "textarea",
+        "placeholder": "Provide a detailed summary of the incident...",
+        "line": 213
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 224
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 239
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 254
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 258
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 262
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 266
+      },
+      {
+        "type": "input",
+        "label": "[TIMESTAMP] Initializing recovery sequence...",
+        "inputType": "textarea",
+        "placeholder": "[TIMESTAMP] Initializing recovery sequence...",
+        "line": 296
+      },
+      {
+        "type": "form",
+        "label": "form",
+        "line": 195
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Atlas Ops",
+        "href": "#",
+        "line": 169
+      },
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 174
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 185
+      },
+      {
+        "type": "button",
+        "label": "Record",
+        "line": 188
+      },
+      {
+        "type": "button",
+        "label": "Bold",
+        "line": 282
+      },
+      {
+        "type": "button",
+        "label": "Italic",
+        "line": 285
+      },
+      {
+        "type": "button",
+        "label": "Code Block",
+        "line": 289
+      },
+      {
+        "type": "button",
+        "label": "Attach Log",
+        "line": 292
+      },
+      {
+        "type": "button",
+        "label": "Discard Changes",
+        "line": 302
+      },
+      {
+        "type": "button",
+        "label": "Save Record",
+        "line": 305
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "e.g. Database Sync Failure - Node A",
+        "inputType": "text",
+        "placeholder": "e.g. Database Sync Failure - Node A",
+        "line": 203
+      },
+      {
+        "type": "input",
+        "label": "Provide a detailed summary of the incident...",
+        "inputType": "textarea",
+        "placeholder": "Provide a detailed summary of the incident...",
+        "line": 213
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 224
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 239
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 254
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 258
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 262
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 266
+      },
+      {
+        "type": "input",
+        "label": "[TIMESTAMP] Initializing recovery sequence...",
+        "inputType": "textarea",
+        "placeholder": "[TIMESTAMP] Initializing recovery sequence...",
+        "line": 296
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 20,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "b6851c3f538c49af9ef5ea838d67ac6e",
+    "screenTitle": "Pipeline Board - RecoverGrid Atlas",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 174
+      },
+      {
+        "type": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "line": 178
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 182
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 188
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 192
+      },
+      {
+        "type": "link",
+        "label": "Records",
+        "href": "#",
+        "line": 210
+      },
+      {
+        "type": "link",
+        "label": "Pipeline",
+        "href": "#",
+        "line": 211
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 212
+      },
+      {
+        "type": "button",
+        "label": "New Incident",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 216
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 219
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 223
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 226
+      },
+      {
+        "type": "input",
+        "label": "Search incidents...",
+        "inputType": "text",
+        "placeholder": "Search incidents...",
+        "line": 207
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 174
+      },
+      {
+        "type": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "line": 178
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 182
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 188
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 192
+      },
+      {
+        "type": "link",
+        "label": "Records",
+        "href": "#",
+        "line": 210
+      },
+      {
+        "type": "link",
+        "label": "Pipeline",
+        "href": "#",
+        "line": 211
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 212
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Incident",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 216
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 219
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 223
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 226
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search incidents...",
+        "inputType": "text",
+        "placeholder": "Search incidents...",
+        "line": 207
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 14,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "429f7f08067a46eaa75d04c089d09f60",
+    "screenTitle": "Empty and Error Recovery - RecoverGrid Atlas",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 123
+      },
+      {
+        "type": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "line": 127
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 131
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 138
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "Records",
+        "href": "#",
+        "line": 166
+      },
+      {
+        "type": "link",
+        "label": "Pipeline",
+        "href": "#",
+        "line": 167
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 168
+      },
+      {
+        "type": "link",
+        "label": "Import from CSV",
+        "href": "#",
+        "line": 223
+      },
+      {
+        "type": "link",
+        "label": "View Documentation",
+        "href": "#",
+        "line": 225
+      },
+      {
+        "type": "button",
+        "label": "New Incident",
+        "line": 117
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 172
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 175
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 179
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 182
+      },
+      {
+        "type": "button",
+        "label": "Show Empty",
+        "line": 195
+      },
+      {
+        "type": "button",
+        "label": "Show Error",
+        "line": 196
+      },
+      {
+        "type": "button",
+        "label": "Create First Record",
+        "line": 211
+      },
+      {
+        "type": "button",
+        "label": "Clear Filters",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "Copy Log",
+        "line": 251
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 259
+      },
+      {
+        "type": "button",
+        "label": "Contact Support",
+        "line": 263
+      },
+      {
+        "type": "input",
+        "label": "Search records (Ctrl+K)",
+        "inputType": "text",
+        "placeholder": "Search records (Ctrl+K)",
+        "line": 161
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 123
+      },
+      {
+        "type": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "line": 127
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 131
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 138
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "Records",
+        "href": "#",
+        "line": 166
+      },
+      {
+        "type": "link",
+        "label": "Pipeline",
+        "href": "#",
+        "line": 167
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 168
+      },
+      {
+        "type": "link",
+        "label": "Import from CSV",
+        "href": "#",
+        "line": 223
+      },
+      {
+        "type": "link",
+        "label": "View Documentation",
+        "href": "#",
+        "line": 225
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Incident",
+        "line": 117
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 172
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 175
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 179
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 182
+      },
+      {
+        "type": "button",
+        "label": "Show Empty",
+        "line": 195
+      },
+      {
+        "type": "button",
+        "label": "Show Error",
+        "line": 196
+      },
+      {
+        "type": "button",
+        "label": "Create First Record",
+        "line": 211
+      },
+      {
+        "type": "button",
+        "label": "Clear Filters",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "Copy Log",
+        "line": 251
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 259
+      },
+      {
+        "type": "button",
+        "label": "Contact Support",
+        "line": 263
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records (Ctrl+K)",
+        "inputType": "text",
+        "placeholder": "Search records (Ctrl+K)",
+        "line": 161
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 23,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "a4876f516df04659a9fdeeea8efe7d95",
+    "screenTitle": "Record Operations - RecoverGrid Atlas",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 125
+      },
+      {
+        "type": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "line": 129
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 133
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 139
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 143
+      },
+      {
+        "type": "link",
+        "label": "Records",
+        "href": "#",
+        "line": 163
+      },
+      {
+        "type": "link",
+        "label": "Pipeline",
+        "href": "#",
+        "line": 164
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 165
+      },
+      {
+        "type": "button",
+        "label": "New Incident",
+        "line": 120
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 168
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 171
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 175
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "Notes",
+        "line": 312
+      },
+      {
+        "type": "button",
+        "label": "Copy ID",
+        "line": 316
+      },
+      {
+        "type": "input",
+        "label": "Search records, IDs...",
+        "inputType": "text",
+        "placeholder": "Search records, IDs...",
+        "line": 158
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 211
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 217
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 222
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 125
+      },
+      {
+        "type": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "line": 129
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 133
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 139
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 143
+      },
+      {
+        "type": "link",
+        "label": "Records",
+        "href": "#",
+        "line": 163
+      },
+      {
+        "type": "link",
+        "label": "Pipeline",
+        "href": "#",
+        "line": 164
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 165
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Incident",
+        "line": 120
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 168
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 171
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 175
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "Notes",
+        "line": 312
+      },
+      {
+        "type": "button",
+        "label": "Copy ID",
+        "line": 316
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records, IDs...",
+        "inputType": "text",
+        "placeholder": "Search records, IDs...",
+        "line": 158
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 211
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 217
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 222
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 19,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "1ebdeff007304c35b4626d82663f1111",
+    "screenTitle": "Settings and Preferences - RecoverGrid Atlas",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 141
+      },
+      {
+        "type": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "line": 145
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 149
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 155
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 159
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 120
+      },
+      {
+        "type": "button",
+        "label": "New Incident",
+        "line": 136
+      },
+      {
+        "type": "button",
+        "label": "Reset to Defaults",
+        "line": 174
+      },
+      {
+        "type": "button",
+        "label": "Preferences",
+        "line": 177
+      },
+      {
+        "type": "button",
+        "label": "Manage All",
+        "line": 238
+      },
+      {
+        "type": "button",
+        "label": "Reset",
+        "line": 319
+      },
+      {
+        "type": "button",
+        "label": "Save Preferences",
+        "line": 322
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 198
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 208
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 223
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 252
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 263
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 274
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 290
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 299
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 308
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 141
+      },
+      {
+        "type": "link",
+        "label": "Pipeline Board",
+        "href": "#",
+        "line": 145
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 149
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 155
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 159
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 120
+      },
+      {
+        "type": "button",
+        "label": "New Incident",
+        "line": 136
+      },
+      {
+        "type": "button",
+        "label": "Reset to Defaults",
+        "line": 174
+      },
+      {
+        "type": "button",
+        "label": "Preferences",
+        "line": 177
+      },
+      {
+        "type": "button",
+        "label": "Manage All",
+        "line": 238
+      },
+      {
+        "type": "button",
+        "label": "Reset",
+        "line": 319
+      },
+      {
+        "type": "button",
+        "label": "Save Preferences",
+        "line": 322
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 198
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 208
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 223
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 252
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 263
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 274
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 290
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 299
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 308
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 21,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
