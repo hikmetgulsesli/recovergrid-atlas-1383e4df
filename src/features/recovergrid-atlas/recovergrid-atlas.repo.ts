@@ -20,32 +20,59 @@ export interface PersistedAtlasState {
   lastSavedAt: number | null;
 }
 
-export function loadPersistedState(): Partial<PersistedAtlasState> | null {
-  if (typeof window === 'undefined') return null;
+export interface LoadResult {
+  data: Partial<PersistedAtlasState> | null;
+  error: string | null;
+}
+
+export interface SaveResult {
+  ok: boolean;
+  error: string | null;
+}
+
+export function loadPersistedState(): LoadResult {
+  if (typeof window === 'undefined') {
+    return { data: null, error: null };
+  }
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
+    if (!raw) return { data: null, error: null };
     const parsed = JSON.parse(raw) as Partial<PersistedAtlasState>;
-    return parsed;
-  } catch {
-    return null;
+    return { data: parsed, error: null };
+  } catch (err) {
+    return {
+      data: null,
+      error: err instanceof Error ? err.message : 'Failed to load saved atlas data (corrupted storage).',
+    };
   }
 }
 
-export function savePersistedState(state: PersistedAtlasState): void {
-  if (typeof window === 'undefined') return;
+export function savePersistedState(state: PersistedAtlasState): SaveResult {
+  if (typeof window === 'undefined') {
+    return { ok: false, error: 'localStorage is not available in this environment.' };
+  }
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch {
-    // Persistence is best-effort; corrupted storage must not crash the runtime.
+    return { ok: true, error: null };
+  } catch (err) {
+    return {
+      ok: false,
+      error: err instanceof Error ? err.message : 'Failed to save atlas data.',
+    };
   }
 }
 
-export function clearPersistedState(): void {
-  if (typeof window === 'undefined') return;
+export function clearPersistedState(): SaveResult {
+  if (typeof window === 'undefined') {
+    return { ok: false, error: 'localStorage is not available in this environment.' };
+  }
   try {
     window.localStorage.removeItem(STORAGE_KEY);
-  } catch {
-    // Ignore cleanup failures.
+    return { ok: true, error: null };
+  } catch (err) {
+    return {
+      ok: false,
+      error: err instanceof Error ? err.message : 'Failed to clear saved atlas data.',
+    };
   }
 }

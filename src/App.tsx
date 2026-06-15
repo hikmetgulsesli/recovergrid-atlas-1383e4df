@@ -24,6 +24,57 @@ declare global {
   }
 }
 
+function PersistenceStatus(): JSX.Element {
+  const { state, actions } = useAtlas();
+
+  return (
+    <div className="flex flex-col gap-2 border-b border-outline-variant bg-surface-container-low px-container-padding py-2">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <span className="font-label-md text-on-surface-variant">
+            RecoverGrid Atlas
+          </span>
+          <span className="font-body-sm text-on-surface-variant" data-testid="last-saved-at">
+            {state.lastSavedAt
+              ? `Last saved ${new Date(state.lastSavedAt).toLocaleTimeString()}`
+              : 'Not saved yet'}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          {state.loading && (
+            <span className="font-body-sm text-primary" data-testid="loading-indicator">
+              Loading…
+            </span>
+          )}
+          <button
+            type="button"
+            onClick={actions.clearPersistedState}
+            className="rounded border border-outline-variant bg-surface px-3 py-1 font-body-sm text-on-surface hover:bg-surface-container-high"
+            data-testid="clear-persisted-state"
+          >
+            Clear saved data
+          </button>
+        </div>
+      </div>
+      {state.error && (
+        <div
+          className="flex items-center justify-between rounded bg-error-container/10 px-3 py-2 text-body-md text-error"
+          data-testid="persistence-error"
+        >
+          <span>{state.error}</span>
+          <button
+            type="button"
+            onClick={actions.dismissError}
+            className="ml-2 rounded border border-error/20 px-2 py-0.5 text-sm hover:bg-error/10"
+          >
+            Dismiss
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function AppContent(): JSX.Element {
   const { state, actions } = useAtlas();
   const appRef = useRef({ state, actions });
@@ -142,6 +193,7 @@ function AppContent(): JSX.Element {
 
   return (
     <div className="flex h-full w-full flex-col">
+      <PersistenceStatus />
       {surface === 'recordOperations' && (
         <RecordOperationsRecovergridAtlas actions={recordOperationsActions} />
       )}

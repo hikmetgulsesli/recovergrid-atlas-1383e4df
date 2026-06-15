@@ -5,6 +5,7 @@ import {
   useEffect,
   useMemo,
   useReducer,
+  useRef,
   type ReactNode,
 } from 'react';
 import {
@@ -20,6 +21,7 @@ import {
   type PipelineStage,
 } from '../../__fixtures__/recovergrid-atlas.fixture';
 import {
+  clearPersistedState,
   loadPersistedState,
   savePersistedState,
   type PersistedAtlasState,
@@ -45,6 +47,7 @@ export interface AtlasState {
   loading: boolean;
   lastSavedAt: number | null;
   tickCount: number;
+  clearPending: boolean;
 }
 
 export const initialAtlasState: AtlasState = {
@@ -60,6 +63,7 @@ export const initialAtlasState: AtlasState = {
   loading: false,
   lastSavedAt: null,
   tickCount: 0,
+  clearPending: false,
 };
 
 export type AtlasAction =
@@ -90,7 +94,11 @@ export type AtlasAction =
   | { type: 'MANAGE_ALL' }
   | { type: 'RESET' }
   | { type: 'DISMISS_ERROR' }
-  | { type: 'HYDRATE'; payload: Partial<AtlasState> };
+  | { type: 'HYDRATE'; payload: Partial<AtlasState> }
+  | { type: 'PERSISTENCE_ERROR'; message: string }
+  | { type: 'LOAD_COMPLETE' }
+  | { type: 'CLEAR_PERSISTED_STATE' }
+  | { type: 'CLEAR_COMPLETE' };
 
 function generateId(): string {
   return `RC-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
@@ -228,6 +236,31 @@ export function atlasReducer(state: AtlasState, action: AtlasAction): AtlasState
         loading: true,
         error: null,
         currentSurface: 'recordOperations',
+      };
+
+    case 'LOAD_COMPLETE':
+      return {
+        ...state,
+        loading: false,
+      };
+
+    case 'PERSISTENCE_ERROR':
+      return {
+        ...state,
+        error: action.message,
+        loading: false,
+      };
+
+    case 'CLEAR_PERSISTED_STATE':
+      return {
+        ...initialAtlasState,
+        clearPending: true,
+      };
+
+    case 'CLEAR_COMPLETE':
+      return {
+        ...state,
+        clearPending: false,
       };
 
     case 'UPDATE_RECORD_STATUS': {
@@ -380,6 +413,7 @@ export interface AtlasActions {
   manageAll: () => void;
   reset: () => void;
   dismissError: () => void;
+  clearPersistedState: () => void;
 }
 
 interface AtlasContextValue {
@@ -419,29 +453,69 @@ function makeActions(dispatch: React.Dispatch<AtlasAction>): AtlasActions {
     manageAll: () => dispatch({ type: 'MANAGE_ALL' }),
     reset: () => dispatch({ type: 'RESET' }),
     dismissError: () => dispatch({ type: 'DISMISS_ERROR' }),
+    clearPersistedState: () => dispatch({ type: 'CLEAR_PERSISTED_STATE' }),
   };
 }
 
 export function AtlasProvider({ children }: { children: ReactNode }): JSX.Element {
-  const [state, dispatch] = useReducer(atlasReducer, initialAtlasState, (fallback): AtlasState => {
-    const persisted = loadPersistedState();
-    if (!persisted) return fallback;
-    return {
-      ...fallback,
-      ...(persisted as Partial<AtlasState>),
-      // Always rehydrate live runtime fields from current session, not stale persisted values.
-      loading: false,
-      error: null,
-    };
-  });
-
+  const [state, dispatch] = useReducer(atlasReducer, initialAtlasState);
   const actions = useMemo(() => makeActions(dispatch), []);
   const filteredRecords = useMemo(
     () => filterRecords(state.records, state.searchQuery, state.statusFilter),
     [state.records, state.searchQuery, state.statusFilter],
   );
 
+  const hydratedRef = useRef(false);
+  const skipNextSaveRef = useRef(false);
+
+  // Hydrate once on mount; corrupted or missing storage is surfaced through state.error.
   useEffect(() => {
+    const result = loadPersistedState();
+    if (result.error) {
+      dispatch({ type: 'PERSISTENCE_ERROR', message: result.error });
+    } else if (result.data) {
+      dispatch({
+        type: 'HYDRATE',
+        payload: {
+          ...result.data,
+          loading: false,
+          error: null,
+        },
+      });
+    }
+    dispatch({ type: 'LOAD_COMPLETE' });
+    hydratedRef.current = true;
+  }, []);
+
+  // Retry hydration from localStorage when the user triggers a retry.
+  useEffect(() => {
+    if (!state.loading) return;
+    const result = loadPersistedState();
+    if (result.error) {
+      dispatch({ type: 'PERSISTENCE_ERROR', message: result.error });
+    } else if (result.data) {
+      dispatch({
+        type: 'HYDRATE',
+        payload: {
+          ...result.data,
+          loading: false,
+          error: null,
+        },
+      });
+    } else {
+      dispatch({ type: 'LOAD_COMPLETE' });
+    }
+  }, [state.loading]);
+
+  // Persist runtime state; propagate save failures to the UI.
+  useEffect(() => {
+    if (!hydratedRef.current) return;
+    if (skipNextSaveRef.current) {
+      skipNextSaveRef.current = false;
+      return;
+    }
+    if (state.clearPending) return;
+
     const payload: PersistedAtlasState = {
       records: state.records,
       activities: state.activities,
@@ -453,7 +527,10 @@ export function AtlasProvider({ children }: { children: ReactNode }): JSX.Elemen
       statusFilter: state.statusFilter,
       lastSavedAt: state.lastSavedAt,
     };
-    savePersistedState(payload);
+    const result = savePersistedState(payload);
+    if (!result.ok && result.error) {
+      dispatch({ type: 'PERSISTENCE_ERROR', message: result.error });
+    }
   }, [
     state.records,
     state.activities,
@@ -464,7 +541,19 @@ export function AtlasProvider({ children }: { children: ReactNode }): JSX.Elemen
     state.searchQuery,
     state.statusFilter,
     state.lastSavedAt,
+    state.clearPending,
   ]);
+
+  // Complete clearing storage without immediately re-saving the initial seed data.
+  useEffect(() => {
+    if (!state.clearPending) return;
+    const result = clearPersistedState();
+    if (!result.ok && result.error) {
+      dispatch({ type: 'PERSISTENCE_ERROR', message: result.error });
+    }
+    skipNextSaveRef.current = true;
+    dispatch({ type: 'CLEAR_COMPLETE' });
+  }, [state.clearPending]);
 
   const value = useMemo(
     () => ({ state, dispatch, actions, filteredRecords }),
