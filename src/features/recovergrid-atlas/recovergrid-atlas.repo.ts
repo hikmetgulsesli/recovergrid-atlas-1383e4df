@@ -1,18 +1,23 @@
+import type {
+  ActivityEvent,
+  AtlasRecord,
+  Preference,
+  RecordStatus,
+} from '../../__fixtures__/recovergrid-atlas.fixture';
+import type { Surface } from './recovergrid-atlas.store';
+
 const STORAGE_KEY = 'recovergrid-atlas:v1';
 
 export interface PersistedAtlasState {
-  records: unknown[];
-  activities: unknown[];
-  preferences: unknown;
-  currentSurface: string;
+  records: AtlasRecord[];
+  activities: ActivityEvent[];
+  preferences: Preference;
+  currentSurface: Surface;
   selectedRecordId: string | null;
-  draftRecord: unknown;
+  draftRecord: Partial<AtlasRecord> | null;
   searchQuery: string;
-  statusFilter: string;
-  error: string | null;
-  loading: boolean;
+  statusFilter: RecordStatus | 'all';
   lastSavedAt: number | null;
-  tickCount: number;
 }
 
 export function loadPersistedState(): Partial<PersistedAtlasState> | null {

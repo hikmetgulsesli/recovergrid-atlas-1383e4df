@@ -5,7 +5,6 @@ import {
   useEffect,
   useMemo,
   useReducer,
-  useRef,
   type ReactNode,
 } from 'react';
 import {
@@ -269,14 +268,16 @@ export function atlasReducer(state: AtlasState, action: AtlasAction): AtlasState
       };
     }
 
-    case 'SAVE_PREFERENCES':
+    case 'SAVE_PREFERENCES': {
+      const updatedPreferences = { ...state.preferences, ...action.preferences };
       return {
         ...state,
-        preferences: { ...state.preferences, ...action.preferences },
+        preferences: updatedPreferences,
         lastSavedAt: now,
-        currentSurface: state.preferences.defaultView,
+        currentSurface: updatedPreferences.defaultView,
         error: null,
       };
+    }
 
     case 'RESET_PREFERENCES':
       return {
@@ -440,33 +441,30 @@ export function AtlasProvider({ children }: { children: ReactNode }): JSX.Elemen
     [state.records, state.searchQuery, state.statusFilter],
   );
 
-  const stateForPersistenceRef = useRef(state);
-  stateForPersistenceRef.current = state;
-
-  useEffect(() => {
-    const persisted = loadPersistedState();
-    if (persisted) {
-      dispatch({ type: 'HYDRATE', payload: persisted as Partial<AtlasState> });
-    }
-  }, []);
-
   useEffect(() => {
     const payload: PersistedAtlasState = {
-      records: state.records as unknown[],
-      activities: state.activities as unknown[],
-      preferences: state.preferences as unknown,
+      records: state.records,
+      activities: state.activities,
+      preferences: state.preferences,
       currentSurface: state.currentSurface,
       selectedRecordId: state.selectedRecordId,
-      draftRecord: state.draftRecord as unknown,
+      draftRecord: state.draftRecord,
       searchQuery: state.searchQuery,
       statusFilter: state.statusFilter,
-      error: state.error,
-      loading: state.loading,
       lastSavedAt: state.lastSavedAt,
-      tickCount: state.tickCount,
     };
     savePersistedState(payload);
-  }, [state]);
+  }, [
+    state.records,
+    state.activities,
+    state.preferences,
+    state.currentSurface,
+    state.selectedRecordId,
+    state.draftRecord,
+    state.searchQuery,
+    state.statusFilter,
+    state.lastSavedAt,
+  ]);
 
   const value = useMemo(
     () => ({ state, dispatch, actions, filteredRecords }),
