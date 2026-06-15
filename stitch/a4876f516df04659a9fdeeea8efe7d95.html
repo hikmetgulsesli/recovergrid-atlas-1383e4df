@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Record Operations - RecoverGrid Atlas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-container": "#2563eb",
+                        "surface": "#f7f9fb",
+                        "on-surface-variant": "#434655",
+                        "surface-container-high": "#e6e8ea",
+                        "outline": "#737686",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-container": "#eeefff",
+                        "primary": "#004ac6",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-primary": "#b4c5ff",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "primary-fixed": "#dbe1ff",
+                        "on-background": "#191c1e",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#360f00",
+                        "outline-variant": "#c3c6d7",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary": "#505f76",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary-container": "#bc4800",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-container": "#ffede6",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-secondary-container": "#54647a",
+                        "surface-tint": "#0053db",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#d0e1fb",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "tertiary": "#943700",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "12px",
+                        "section-gap": "24px",
+                        "container-padding": "16px",
+                        "stack-compact": "4px",
+                        "stack-default": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "display-sm": ["Inter"],
+                        "label-xs": ["JetBrains Mono"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-xs": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f7f9fb; }
+        /* Custom scrollbar for density */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c3c6d7; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #737686; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-hidden flex h-screen">
+<!-- SideNavBar -->
+<nav class="hidden lg:flex flex-col h-full py-section-gap px-container-padding bg-surface-container-low border-r border-outline-variant fixed left-0 top-0 w-64 z-40 transition-all duration-150 ease-in-out">
+<div class="mb-section-gap flex items-center gap-stack-default">
+<img alt="System Node" class="w-8 h-8 rounded bg-surface-variant object-cover" data-alt="A macro shot of a sleek, abstract glowing server node or microchip, primarily in cold blues and deep grays, conveying stability and data processing. The lighting is studio-quality, emphasizing the metallic textures and subtle LED indicators. Highly detailed, futuristic, and utilitarian." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKkTrd8lulC22kYZX3-X3iX8XJUl7QorVA_7rvqphZEKj8naBzN4g4UUCeiIb5Q_B0bIkcUuwZDol0Rh5Sl2mAgVdOlR04qkE5SMrhipYVsWbhHWeMQDTaVhtDiXYFRMGCgmDdqCKhKaPG5v29Ykr_uY-fKGUoofuuIRsJgr6-dAOCxDyO3CXyoE3xj-u3sqkU3Pi-t9h7B7zEO92lMXQplCzPI5DmQfS-abCYsSBwn3-OZ-l_aBe7IbmmcIQJ4vTDveuvBiHdgf8"/>
+<div>
+<h1 class="font-display-sm text-display-sm text-on-surface">Atlas Ops</h1>
+<p class="font-label-xs text-label-xs text-on-surface-variant">v2.4.0-stable</p>
+</div>
+</div>
+<button class="mb-section-gap w-full flex items-center justify-center gap-stack-compact bg-primary text-on-primary font-label-md text-label-md py-2 px-4 rounded hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" style="font-size: 16px;">add</span>
+            New Incident
+        </button>
+<div class="flex-1 flex flex-col gap-unit">
+<a class="flex items-center gap-stack-default px-3 py-2 rounded bg-primary-container text-on-primary-container border-l-2 border-primary transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">analytics</span>
+<span class="font-label-md text-label-md">Record Operations</span>
+</a>
+<a class="flex items-center gap-stack-default px-3 py-2 rounded text-on-surface-variant hover:bg-surface-variant hover:bg-surface-container-high transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">view_kanban</span>
+<span class="font-label-md text-label-md">Pipeline Board</span>
+</a>
+<a class="flex items-center gap-stack-default px-3 py-2 rounded text-on-surface-variant hover:bg-surface-variant hover:bg-surface-container-high transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-unit border-t border-outline-variant pt-stack-default">
+<a class="flex items-center gap-stack-default px-3 py-2 rounded text-on-surface-variant hover:bg-surface-variant hover:bg-surface-container-high transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">support_agent</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-stack-default px-3 py-2 rounded text-on-surface-variant hover:bg-surface-variant hover:bg-surface-container-high transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">terminal</span>
+<span class="font-label-md text-label-md">Logs</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col lg:ml-64 h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest border-b border-outline-variant fixed top-0 left-0 w-full z-50 flex items-center justify-between px-gutter h-12 lg:pl-[calc(16rem+12px)] cursor-pointer active:opacity-80">
+<div class="flex items-center gap-gutter">
+<div class="font-headline-sm text-headline-sm font-bold text-primary lg:hidden">RecoverGrid Atlas</div>
+<!-- Search on left -->
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-outline" style="font-size: 16px;">search</span>
+<input class="pl-8 pr-3 py-1 bg-surface-container-low border border-outline-variant rounded font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 h-8 transition-colors" placeholder="Search records, IDs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-gutter h-full">
+<nav class="hidden md:flex items-center gap-stack-default h-full">
+<a class="text-primary border-b-2 border-primary pb-1 h-full flex items-center font-body-md text-body-md px-2 hover:text-primary transition-colors" href="#">Records</a>
+<a class="text-on-surface-variant pb-1 h-full flex items-center font-body-md text-body-md px-2 hover:text-primary transition-colors" href="#">Pipeline</a>
+<a class="text-on-surface-variant pb-1 h-full flex items-center font-body-md text-body-md px-2 hover:text-primary transition-colors" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-stack-compact ml-auto border-l border-outline-variant pl-gutter h-8">
+<button class="h-8 px-3 rounded bg-surface border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-1">
+                        Retry Load
+                    </button>
+<button class="h-8 px-3 rounded bg-primary text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center gap-1">
+                        Create Record
+                    </button>
+<div class="flex items-center gap-stack-compact ml-2 text-on-surface-variant">
+<button class="p-1 hover:bg-surface-variant rounded transition-colors"><span class="material-symbols-outlined" style="font-size: 20px;">notifications</span></button>
+<button class="p-1 hover:bg-surface-variant rounded transition-colors"><span class="material-symbols-outlined" style="font-size: 20px;">help_outline</span></button>
+</div>
+<img alt="Operator Profile" class="w-8 h-8 rounded-full ml-2 object-cover border border-outline-variant" data-alt="A tight, professional portrait photo of a focused tech operator or engineer. Subtle, clean studio lighting with a neutral gray background. The person looks alert and professional, conveying expertise. The style is hyper-realistic and high-quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrARQQqLc6aN__GHel27u8yNWVMIudiwvHDJercSKdBAvsDRVk-d95OLqtTeozLXrCKAVEeVTZcTy0aREMoysXX3WkvzUlHIfhd6RIRBi2pHLTzid12zsX_HQwA1eAsTm61XmiZAgX-mevt6E_lHG1kam654_Pd-jI98KZhDuYswBw8Tc67Q0dkjXrDNaeDAYU_gzxzHvjt0qKWy9DVn_y1WYMJ-I5O6FU4L-QwAi-SF-XE_wyRILYwZcYmUFKMjZHDTZNPOKjVj0"/>
+</div>
+</div>
+</header>
+<!-- Workspace Canvas -->
+<main class="flex-1 mt-12 flex overflow-hidden bg-background">
+<!-- Left/Center Data Canvas -->
+<div class="flex-1 flex flex-col p-container-padding gap-container-padding overflow-y-auto">
+<!-- Metrics Bar -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-unit">
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-3 flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Total Incidents</span>
+<span class="font-display-sm text-display-sm text-on-surface mt-1">1,204</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-3 flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Pending Retries</span>
+<span class="font-display-sm text-display-sm text-secondary mt-1">42</span>
+</div>
+<div class="bg-surface-container-lowest border border-error-container rounded p-3 flex flex-col bg-red-50">
+<span class="font-label-xs text-label-xs text-error uppercase tracking-wider">Blocked</span>
+<span class="font-display-sm text-display-sm text-error mt-1">7</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-3 flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Resolved (24h)</span>
+<span class="font-display-sm text-display-sm text-primary mt-1">156</span>
+</div>
+</div>
+<!-- Filters & Controls -->
+<div class="flex flex-wrap items-center gap-stack-default bg-surface-container-lowest border border-outline-variant rounded p-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-size: 18px;">filter_list</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Filters:</span>
+</div>
+<select class="h-8 py-0 pl-2 pr-8 border border-outline-variant rounded bg-surface font-body-sm text-body-sm text-on-surface focus:ring-1 focus:ring-primary focus:border-primary">
+<option>Status: All</option>
+<option>Blocked</option>
+<option>Pending</option>
+<option>Active</option>
+</select>
+<select class="h-8 py-0 pl-2 pr-8 border border-outline-variant rounded bg-surface font-body-sm text-body-sm text-on-surface focus:ring-1 focus:ring-primary focus:border-primary">
+<option>Owner: Me</option>
+<option>Team Alpha</option>
+<option>Unassigned</option>
+</select>
+<select class="h-8 py-0 pl-2 pr-8 border border-outline-variant rounded bg-surface font-body-sm text-body-sm text-on-surface focus:ring-1 focus:ring-primary focus:border-primary">
+<option>Time: Last 24h</option>
+<option>Last 7 Days</option>
+<option>All Time</option>
+</select>
+</div>
+<!-- Data Table -->
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant rounded overflow-hidden flex flex-col">
+<div class="overflow-x-auto flex-1">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant font-label-xs text-label-xs text-on-surface-variant">
+<th class="p-3 font-medium w-24">ID</th>
+<th class="p-3 font-medium w-24">Status</th>
+<th class="p-3 font-medium">Title</th>
+<th class="p-3 font-medium w-32">Owner</th>
+<th class="p-3 font-medium w-32">PR State</th>
+<th class="p-3 font-medium w-40">Last Activity</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y divide-outline-variant">
+<!-- Row 1 Active -->
+<tr class="bg-primary-container/5 border-l-2 border-l-primary cursor-pointer hover:bg-surface-variant/50 transition-colors">
+<td class="p-3 font-label-md text-label-md text-primary">RG-1024</td>
+<td class="p-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-error/10 text-error font-label-xs text-label-xs border border-error/20">Blocked</span>
+</td>
+<td class="p-3 text-on-surface font-medium truncate max-w-xs">Data node sync failure in cluster eu-west-1</td>
+<td class="p-3 text-on-surface-variant">J. Smith</td>
+<td class="p-3">
+<span class="inline-flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-outline" style="font-size: 14px;">call_split</span>
+                                            Open
+                                        </span>
+</td>
+<td class="p-3 text-on-surface-variant font-label-md text-label-md">10:42 AM</td>
+</tr>
+<!-- Row 2 -->
+<tr class="cursor-pointer hover:bg-surface-variant/50 transition-colors">
+<td class="p-3 font-label-md text-label-md text-on-surface-variant">RG-1023</td>
+<td class="p-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-variant text-on-surface font-label-xs text-label-xs border border-outline-variant">Pending</span>
+</td>
+<td class="p-3 text-on-surface truncate max-w-xs">Timeout during high-volume index rebuild</td>
+<td class="p-3 text-on-surface-variant">System</td>
+<td class="p-3 text-outline">-</td>
+<td class="p-3 text-on-surface-variant font-label-md text-label-md">09:15 AM</td>
+</tr>
+<!-- Row 3 -->
+<tr class="cursor-pointer hover:bg-surface-variant/50 transition-colors">
+<td class="p-3 font-label-md text-label-md text-on-surface-variant">RG-1022</td>
+<td class="p-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-primary/10 text-primary font-label-xs text-label-xs border border-primary/20">Active</span>
+</td>
+<td class="p-3 text-on-surface truncate max-w-xs">Manual override: Schema migration rollback</td>
+<td class="p-3 text-on-surface-variant">A. Chen</td>
+<td class="p-3">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-size: 14px;">merge</span>
+                                            Merged
+                                        </span>
+</td>
+<td class="p-3 text-on-surface-variant font-label-md text-label-md">Yesterday</td>
+</tr>
+<!-- Row 4 -->
+<tr class="cursor-pointer hover:bg-surface-variant/50 transition-colors">
+<td class="p-3 font-label-md text-label-md text-on-surface-variant">RG-1021</td>
+<td class="p-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-variant text-on-surface font-label-xs text-label-xs border border-outline-variant">Resolved</span>
+</td>
+<td class="p-3 text-on-surface-variant truncate max-w-xs line-through opacity-70">False positive alert on memory spike</td>
+<td class="p-3 text-on-surface-variant opacity-70">J. Smith</td>
+<td class="p-3 text-outline opacity-70">-</td>
+<td class="p-3 text-on-surface-variant font-label-md text-label-md opacity-70">Yesterday</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Inspector Panel -->
+<aside class="hidden xl:flex w-80 bg-surface-container-lowest border-l border-outline-variant flex-col overflow-y-auto">
+<!-- Inspector Header -->
+<div class="p-container-padding border-b border-outline-variant flex flex-col gap-unit sticky top-0 bg-surface-container-lowest z-10">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold">RG-1024</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-error/10 text-error font-label-xs text-label-xs border border-error/20">Blocked</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mt-1 leading-tight">Data node sync failure in cluster eu-west-1</h2>
+<div class="flex items-center gap-2 mt-2">
+<button class="flex-1 h-8 px-2 rounded bg-surface border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">edit</span>
+                            Edit Notes
+                        </button>
+<button class="h-8 w-8 rounded bg-surface border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors flex items-center justify-center" title="Copy ID">
+<span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Inspector Content -->
+<div class="p-container-padding flex flex-col gap-section-gap">
+<!-- Recovery Notes -->
+<div class="flex flex-col gap-unit">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Recovery Notes</h3>
+<div class="bg-surface-container-low border border-outline-variant rounded p-2 font-label-xs text-label-xs text-on-surface-variant leading-relaxed h-32 overflow-y-auto font-mono">
+<span class="text-secondary">&gt; Connecting to eu-west-1 master node... OK</span><br/>
+<span class="text-secondary">&gt; Verifying replication lag... WARN: Lag &gt; 500ms</span><br/>
+&gt; Initializing forced resync protocol.<br/>
+&gt; Expected duration: ~45 mins.<br/>
+<span class="text-error">FATAL: Partition /dev/sdb1 full. Resync aborted.</span><br/>
+_
+                        </div>
+</div>
+<!-- Timeline -->
+<div class="flex flex-col gap-stack-default">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-2">Recovery Timeline</h3>
+<div class="relative pl-6 pb-4">
+<div class="absolute left-2.5 top-2 bottom-0 w-px bg-outline-variant"></div>
+<!-- Timeline Item: Error -->
+<div class="relative mb-4">
+<div class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-error border-2 border-surface-container-lowest"></div>
+<div class="font-label-md text-label-md text-on-surface">Sync Aborted</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Partition full error detected.</div>
+<div class="font-label-xs text-label-xs text-outline mt-1">10:42 AM - System</div>
+</div>
+<!-- Timeline Item: Info -->
+<div class="relative mb-4">
+<div class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-surface-variant border-2 border-surface-container-lowest"></div>
+<div class="font-label-md text-label-md text-on-surface">Resync Protocol Initiated</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manual override by J. Smith.</div>
+<div class="font-label-xs text-label-xs text-outline mt-1">10:15 AM - J. Smith</div>
+</div>
+<!-- Timeline Item: Alert -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-tertiary-container border-2 border-surface-container-lowest"></div>
+<div class="font-label-md text-label-md text-on-surface">Replication Lag Alert</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Lag exceeded threshold (500ms).</div>
+<div class="font-label-xs text-label-xs text-outline mt-1">09:58 AM - System Auto</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

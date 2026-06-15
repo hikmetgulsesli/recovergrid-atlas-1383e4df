@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings and Preferences - RecoverGrid Atlas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-container": "#2563eb",
+                        "surface": "#f7f9fb",
+                        "on-surface-variant": "#434655",
+                        "surface-container-high": "#e6e8ea",
+                        "outline": "#737686",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-container": "#eeefff",
+                        "primary": "#004ac6",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-primary": "#b4c5ff",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "primary-fixed": "#dbe1ff",
+                        "on-background": "#191c1e",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#360f00",
+                        "outline-variant": "#c3c6d7",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary": "#505f76",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary-container": "#bc4800",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-container": "#ffede6",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-secondary-container": "#54647a",
+                        "surface-tint": "#0053db",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#d0e1fb",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "tertiary": "#943700",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "12px",
+                        "section-gap": "24px",
+                        "container-padding": "16px",
+                        "stack-compact": "4px",
+                        "stack-default": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "display-sm": ["Inter"],
+                        "label-xs": ["JetBrains Mono"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-xs": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f7f9fb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c3c6d7; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #737686; }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface flex h-screen overflow-hidden">
+<!-- TopNavBar for Mobile (Visible on < lg screens) -->
+<nav class="lg:hidden fixed top-0 left-0 w-full z-50 flex items-center justify-between px-gutter h-12 bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">RecoverGrid Atlas</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar (Visible on lg+ screens) -->
+<aside class="hidden lg:flex flex-col h-full py-section-gap px-container-padding bg-surface-container-low w-64 border-r border-outline-variant shrink-0 relative z-10 transition-all duration-150 ease-in-out">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container fill">dns</span>
+</div>
+<div>
+<h1 class="font-display-sm text-display-sm text-on-surface leading-tight">Atlas Ops</h1>
+<p class="font-label-xs text-label-xs text-on-surface-variant mt-1">v2.4.0-stable</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary h-8 rounded flex items-center justify-center gap-2 mb-6 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="font-label-md text-label-md">New Incident</span>
+</button>
+<nav class="flex-1 flex flex-col gap-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2 rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-variant transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">analytics</span>
+<span>Record Operations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-variant transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">view_kanban</span>
+<span>Pipeline Board</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded font-label-md text-label-md bg-primary-container text-on-primary-container border-l-2 border-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-variant transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">support_agent</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-variant transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">terminal</span>
+<span>Logs</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden bg-background relative pt-12 lg:pt-0">
+<!-- Workspace Header -->
+<header class="px-section-gap py-gutter border-b border-outline-variant bg-surface-container-lowest shrink-0 flex items-center justify-between">
+<div>
+<h2 class="font-display-sm text-display-sm text-on-surface">Settings and Preferences</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Manage your operational workspace configurations.</p>
+</div>
+<div class="flex items-center gap-3 hidden sm:flex">
+<button class="h-8 px-4 rounded border border-outline text-secondary font-label-md text-label-md hover:bg-surface-variant transition-colors">
+                    Reset to Defaults
+                </button>
+<button class="h-8 px-4 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-primary/90 transition-colors flex items-center gap-2" onclick="showToast()">
+<span class="material-symbols-outlined text-[16px]">save</span>
+                    Save Preferences
+                </button>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto p-section-gap">
+<div class="max-w-4xl mx-auto space-y-section-gap">
+<!-- Section: General Workflow -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
+<div class="px-container-padding py-gutter border-b border-outline-variant bg-surface-container-low flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">tune</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">General Workflow</h3>
+</div>
+<div class="p-container-padding space-y-6">
+<!-- Default View Selection -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Default Operation View</label>
+<div class="flex gap-4">
+<label class="flex-1 relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="default_view" type="radio" value="list"/>
+<div class="p-4 border border-outline-variant rounded bg-surface peer-checked:border-primary peer-checked:bg-primary-fixed peer-checked:ring-1 peer-checked:ring-primary transition-all group-hover:border-outline">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface">Data Grid (List)</span>
+<span class="material-symbols-outlined text-[20px] text-primary hidden peer-checked:block">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-density tabular view for batch operations.</p>
+</div>
+</label>
+<label class="flex-1 relative cursor-pointer group">
+<input class="peer sr-only" name="default_view" type="radio" value="board"/>
+<div class="p-4 border border-outline-variant rounded bg-surface peer-checked:border-primary peer-checked:bg-primary-fixed peer-checked:ring-1 peer-checked:ring-primary transition-all group-hover:border-outline">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface">Pipeline Board</span>
+<span class="material-symbols-outlined text-[20px] text-primary hidden peer-checked:block">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Kanban-style tracking for sequential workflows.</p>
+</div>
+</label>
+</div>
+</div>
+<hr class="border-outline-variant"/>
+<!-- UI Density Selection -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Interface Density</label>
+<select class="w-full max-w-xs h-8 px-3 border border-outline rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface focus:ring-1 focus:ring-primary focus:border-primary outline-none appearance-none">
+<option value="compact">Compact (Max Rows)</option>
+<option value="comfortable">Comfortable (Standard Padding)</option>
+</select>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Compact mode reduces padding to display more records above the fold.</p>
+</div>
+</div>
+</section>
+<!-- Section: Saved Filters -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
+<div class="px-container-padding py-gutter border-b border-outline-variant bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">filter_list</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Saved Filters</h3>
+</div>
+<button class="text-primary font-label-md text-label-md hover:underline">Manage All</button>
+</div>
+<div class="p-0">
+<div class="divide-y divide-outline-variant">
+<!-- Filter Item 1 -->
+<div class="p-container-padding flex items-center justify-between hover:bg-surface-variant transition-colors">
+<div>
+<p class="font-label-md text-label-md text-on-surface flex items-center gap-2">
+                                        Critical Failures (T-24h)
+                                        <span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-xs text-label-xs">Active Default</span>
+</p>
+<p class="font-label-xs text-label-xs text-on-surface-variant font-mono mt-1">status:failed AND severity:critical AND time:&gt;now-24h</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Filter Item 2 -->
+<div class="p-container-padding flex items-center justify-between hover:bg-surface-variant transition-colors">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Pending Gate Approvals</p>
+<p class="font-label-xs text-label-xs text-on-surface-variant font-mono mt-1">status:pending_gate AND assignee:me</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Filter Item 3 -->
+<div class="p-container-padding flex items-center justify-between hover:bg-surface-variant transition-colors">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Recent Recoveries (Last 7 Days)</p>
+<p class="font-label-xs text-label-xs text-on-surface-variant font-mono mt-1">status:recovered AND time:&gt;now-7d</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Notification Rules -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden mb-12 lg:mb-0">
+<div class="px-container-padding py-gutter border-b border-outline-variant bg-surface-container-low flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">notifications_active</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Alert Configuration</h3>
+</div>
+<div class="p-container-padding space-y-4">
+<label class="flex items-start gap-3 cursor-pointer group">
+<div class="flex items-center h-5">
+<input checked="" class="w-4 h-4 text-primary bg-surface border-outline rounded focus:ring-primary focus:ring-1" id="notif_new" type="checkbox"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">New Incident Assigned</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Notify when a high-severity ticket is routed to your queue.</span>
+</div>
+</label>
+<label class="flex items-start gap-3 cursor-pointer group">
+<div class="flex items-center h-5">
+<input checked="" class="w-4 h-4 text-primary bg-surface border-outline rounded focus:ring-primary focus:ring-1" id="notif_retry" type="checkbox"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Automated Retry Failure</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Alert immediately if an automated recovery pipeline terminates unexpectedly.</span>
+</div>
+</label>
+<label class="flex items-start gap-3 cursor-pointer group">
+<div class="flex items-center h-5">
+<input class="w-4 h-4 text-primary bg-surface border-outline rounded focus:ring-primary focus:ring-1" id="notif_gate" type="checkbox"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Gate Outcome Update</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Receive digests for manual intervention gates concluding.</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Mobile Actions (Sticky Bottom) -->
+<div class="sm:hidden fixed bottom-0 left-0 w-full p-4 bg-surface-container-lowest border-t border-outline-variant flex gap-3 z-40">
+<button class="flex-1 h-10 rounded border border-outline text-secondary font-label-md text-label-md hover:bg-surface-variant transition-colors">
+                        Reset
+                    </button>
+<button class="flex-[2] h-10 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-primary/90 transition-colors" onclick="showToast()">
+                        Save Preferences
+                    </button>
+</div>
+</div>
+</div>
+<!-- Toast Notification -->
+<div class="fixed bottom-section-gap right-section-gap bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded shadow-lg flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 z-50" id="toast">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]">check_circle</span>
+<span class="font-body-sm text-body-sm">Settings saved successfully.</span>
+</div>
+</main>
+<script>
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body></html>

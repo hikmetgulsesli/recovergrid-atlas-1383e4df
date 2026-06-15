@@ -1,0 +1,47 @@
+[
+  {
+    "screenId": "bca39c50dbad459b8f52ca23df86e24a",
+    "name": "Record Editor - RecoverGrid Atlas",
+    "type": "form",
+    "description": "Record Editor - RecoverGrid Atlas screen",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "b6851c3f538c49af9ef5ea838d67ac6e",
+    "name": "Pipeline Board - RecoverGrid Atlas",
+    "type": "app-screen",
+    "description": "Pipeline Board - RecoverGrid Atlas screen",
+    "surfaceIds": [
+      "SURF_PIPELINE_BOARD"
+    ]
+  },
+  {
+    "screenId": "429f7f08067a46eaa75d04c089d09f60",
+    "name": "Empty and Error Recovery - RecoverGrid Atlas",
+    "type": "error",
+    "description": "Empty and Error Recovery - RecoverGrid Atlas screen",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "a4876f516df04659a9fdeeea8efe7d95",
+    "name": "Record Operations - RecoverGrid Atlas",
+    "type": "app-screen",
+    "description": "Record Operations - RecoverGrid Atlas screen",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "1ebdeff007304c35b4626d82663f1111",
+    "name": "Settings and Preferences - RecoverGrid Atlas",
+    "type": "settings",
+    "description": "Settings and Preferences - RecoverGrid Atlas screen",
+    "surfaceIds": [
+      "SURF_SETTINGS_AND_PREFERENCES"
+    ]
+  }
+]

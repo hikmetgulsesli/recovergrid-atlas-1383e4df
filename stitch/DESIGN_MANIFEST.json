@@ -1,0 +1,57 @@
+[
+  {
+    "screenId": "bca39c50dbad459b8f52ca23df86e24a",
+    "title": "Record Editor - RecoverGrid Atlas",
+    "htmlFile": "bca39c50dbad459b8f52ca23df86e24a.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzdkMzA2YTNmMmM0ZDQ2YjlhZGU2ZjJmM2UwZWU2Y2Y3EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM1ODI0MDczNzAyMzQ3MjA4Mjkz&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/recovergrid-atlas-1383e4df/stitch/bca39c50dbad459b8f52ca23df86e24a.html",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "b6851c3f538c49af9ef5ea838d67ac6e",
+    "title": "Pipeline Board - RecoverGrid Atlas",
+    "htmlFile": "b6851c3f538c49af9ef5ea838d67ac6e.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzNlNDkzZTA3YzQ4ZjRmNWU4NjNmOTg2M2FhOTAzOTU3EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM1ODI0MDczNzAyMzQ3MjA4Mjkz&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/recovergrid-atlas-1383e4df/stitch/b6851c3f538c49af9ef5ea838d67ac6e.html",
+    "surfaceIds": [
+      "SURF_PIPELINE_BOARD"
+    ]
+  },
+  {
+    "screenId": "429f7f08067a46eaa75d04c089d09f60",
+    "title": "Empty and Error Recovery - RecoverGrid Atlas",
+    "htmlFile": "429f7f08067a46eaa75d04c089d09f60.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzYxODAwZWMwNzFmNzQzYTVhZTQ5MjU2OWE2ZWMyMzE5EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM1ODI0MDczNzAyMzQ3MjA4Mjkz&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/recovergrid-atlas-1383e4df/stitch/429f7f08067a46eaa75d04c089d09f60.html",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "a4876f516df04659a9fdeeea8efe7d95",
+    "title": "Record Operations - RecoverGrid Atlas",
+    "htmlFile": "a4876f516df04659a9fdeeea8efe7d95.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzMxNmZhYzMyMWZkNjQ4YTViOTY0NDY3ZGZhZDZkMDQxEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM1ODI0MDczNzAyMzQ3MjA4Mjkz&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/recovergrid-atlas-1383e4df/stitch/a4876f516df04659a9fdeeea8efe7d95.html",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "1ebdeff007304c35b4626d82663f1111",
+    "title": "Settings and Preferences - RecoverGrid Atlas",
+    "htmlFile": "1ebdeff007304c35b4626d82663f1111.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzQyNTg1ZDlmMjg3NTQ2NDRiNzBiNDU1ZmQxZjYyMDFiEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM1ODI0MDczNzAyMzQ3MjA4Mjkz&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/recovergrid-atlas-1383e4df/stitch/1ebdeff007304c35b4626d82663f1111.html",
+    "surfaceIds": [
+      "SURF_SETTINGS_AND_PREFERENCES"
+    ]
+  }
+]
